@@ -15,26 +15,26 @@ export class UsersController {
 
   @Post()
   Add() {
-    return 'add actions';
+    return this.service.Add();
   }
   @Get()
   FindAll() {
-    return 'all users';
+    return this.service.FindAll();
   }
   @Get('/:id')
   FindOne(@Param('id') id: string) {
-    return id;
+    return this.service.FindOne();
   }
   @Put('/:id')
   Update(@Param('id') id: string) {
-    return id;
+    return this.service.Update();
   }
   @Delete('/:id')
   Delete(@Param('id') id: string) {
-    return id;
+    return this.service.Delete();
   }
   @Post('search')
   Search(@Query('Key') Key) {
-    return Key;
+    return this.service.Search();
   }
 }
