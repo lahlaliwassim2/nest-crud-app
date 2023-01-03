@@ -33,7 +33,7 @@ export class UsersController {
   }
   @Delete('/:id')
   Delete(@Param('id') id: string) {
-    return this.service.Delete();
+    return this.service.Delete(id);
   }
   @Post('/search')
   Search(@Query('Key') Key) {

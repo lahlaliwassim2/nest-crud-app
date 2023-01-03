@@ -23,8 +23,8 @@ export class UsersService {
       {new : true}
     );
   }
-  Delete() {
-    return 'Delete user';
+  Delete(id) {
+    return this.userModel.remove({_id : id});
   }
   Search() {
     return 'Scearch user';
