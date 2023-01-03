@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { UserDto } from 'src/dto/users.dto';
 import { User, UserDocument } from 'src/models/users.models';
-
+import { faker } from '@faker-js/faker';
 @Injectable()
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
@@ -36,5 +36,17 @@ export class UsersService {
     }
     : {};
     return this.userModel.find(keyword);
+  }
+  Faker() {
+     for(let i = 0;i<30;i++){
+        const fakeUser = {
+          fullname: faker.name.fullName(),
+          email: faker.internet.email(),
+          age: 30,
+          contry: faker.address.city()
+        };
+        this.userModel.create(fakeUser)
+    }; 
+    return 'fake Users adding'
   }
 }

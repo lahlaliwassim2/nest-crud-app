@@ -39,4 +39,9 @@ export class UsersController {
   Search(@Query('key') key) {
     return this.service.Search(key);
   }
+
+  @Post('/faker')
+  Faker() {
+    return this.service.Faker();
+  }
 }
