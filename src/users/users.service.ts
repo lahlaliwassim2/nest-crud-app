@@ -16,8 +16,12 @@ export class UsersService {
   FindOne(id) {
     return this.userModel.findById(id);
   }
-  Update() {
-    return 'Update user';
+  Update(id: string,body : UserDto) {
+    return this.userModel.findByIdAndUpdate(
+      {_id : id},
+      {$set: body},
+      {new : true}
+    );
   }
   Delete() {
     return 'Delete user';

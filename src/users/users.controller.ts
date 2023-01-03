@@ -25,17 +25,17 @@ export class UsersController {
   }
   @Get('/:id')
   FindOne(@Param('id') id: string) {
-    return this.service.FindOne();
+    return this.service.FindOne(id);
   }
   @Put('/:id')
-  Update(@Param('id') id: string) {
-    return this.service.Update();
+  Update(@Param('id') id: string, @Body() body: UserDto) {
+    return this.service.Update(id,body);
   }
   @Delete('/:id')
   Delete(@Param('id') id: string) {
     return this.service.Delete();
   }
-  @Post('search')
+  @Post('/search')
   Search(@Query('Key') Key) {
     return this.service.Search();
   }
