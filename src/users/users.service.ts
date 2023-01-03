@@ -11,10 +11,10 @@ export class UsersService {
     return this.userModel.create(body);
   }
   FindAll() {
-    return 'all users';
+    return this.userModel.find();
   }
-  FindOne() {
-    return 'One user';
+  FindOne(id) {
+    return this.userModel.findById(id);
   }
   Update() {
     return 'Update user';
