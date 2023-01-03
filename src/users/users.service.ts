@@ -26,7 +26,15 @@ export class UsersService {
   Delete(id) {
     return this.userModel.remove({_id : id});
   }
-  Search() {
-    return 'Scearch user';
+  Search(Key: string) {
+    const keyword = Key
+    ? {
+      $or: [
+        { fullname: { $regex: Key, $options: 'i' } },
+        { email:  { $regex: Key, $options: 'i' }},
+      ],
+    }
+    : {};
+    return this.userModel.find(keyword);
   }
 }

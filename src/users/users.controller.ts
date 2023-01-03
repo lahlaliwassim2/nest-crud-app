@@ -36,7 +36,7 @@ export class UsersController {
     return this.service.Delete(id);
   }
   @Post('/search')
-  Search(@Query('Key') Key) {
-    return this.service.Search();
+  Search(@Query('key') key) {
+    return this.service.Search(key);
   }
 }
