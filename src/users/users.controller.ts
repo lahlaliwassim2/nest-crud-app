@@ -6,7 +6,9 @@ import {
   Post,
   Put,
   Param,
+  Body,
 } from '@nestjs/common';
+import { UserDto } from 'src/dto/users.dto';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -14,8 +16,8 @@ export class UsersController {
   constructor(private readonly service: UsersService) {}
 
   @Post()
-  Add() {
-    return this.service.Add();
+  Add(@Body() body: UserDto) {
+    return this.service.Add(body);
   }
   @Get()
   FindAll() {
